@@ -8,7 +8,6 @@ import person from "../assets/svg/person.svg";
 import telephone from "../assets/svg/telephone.svg";
 
 const AboutMe = (props) => {
-  console.log(props);
   return (
     <Wrapper ref={props.aboutMeRef}>
       <div className="inner">

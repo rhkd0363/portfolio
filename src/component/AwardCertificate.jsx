@@ -24,7 +24,7 @@ const AwardCertificate = (props) => {
               <div className="info-box">
                 <div>
                   <h3>
-                    공통프로젝트 최우수상(1등)
+                    공통프로젝트 우수상(1등)
                     <br />
                     삼성 청년 SW 아카데미
                   </h3>
@@ -127,10 +127,6 @@ const Wrapper = styled.article`
             div {
               font-size: 1rem;
               font-weight: 600;
-
-              a {
-                color: #000000;
-              }
             }
           }
         }

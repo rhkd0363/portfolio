@@ -72,7 +72,6 @@ const Wrapper = styled.article`
 
       .info-wrap {
         width: 80%;
-        min-width: 25rem;
         margin: 0 auto 2rem;
         background: #ffffff;
         border-radius: 2rem;
@@ -89,6 +88,11 @@ const Wrapper = styled.article`
           width: 80%;
           border: 1.5px solid black;
           margin: 0 auto 0.5rem;
+        }
+
+        img {
+          width: 66.66%;
+          margin: 1rem auto;
         }
       }
     }

@@ -7,6 +7,7 @@ import Skill from "./component/Skill";
 import Experience from "./component/Experience";
 import AwardCertificate from "./component/AwardCertificate";
 import Project from "./component/Project";
+import github from "./assets/svg/github.svg";
 
 function App() {
   const aboutMeRef = useRef();
@@ -72,7 +73,9 @@ function App() {
         <AwardCertificate awardCertificateRef={awardCertificateRef} />
         <Project projectRef={projectRef} />
       </main>
-      <footer></footer>
+      <footer style={{ background: "#000", height: "3rem", padding: "1rem" }}>
+        <img src={github} alt="#" style={{ height: "3rem" }} />
+      </footer>
     </div>
   );
 }

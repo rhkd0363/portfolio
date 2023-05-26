@@ -29,7 +29,7 @@ const NavBar = (props) => {
   }, []);
 
   return (
-    <Header isScrollTop={isScrollTop}>
+    <Header isscrolltop={isScrollTop.toString()}>
       <div className="section">
         <div
           className="title"
@@ -121,10 +121,12 @@ const Header = styled.header`
   left: 0;
   right: 0;
   z-index: 10;
-  background: ${(props) => (props.isScrollTop ? "none" : "#ffffff")};
-  color: ${(props) => (props.isScrollTop ? "#ffffff" : "#000000")};
+  background: ${(props) => (props.isscrolltop === "true" ? "none" : "#ffffff")};
+  color: ${(props) => (props.isscrolltop === "true" ? "#ffffff" : "#000000")};
   box-shadow: ${(props) =>
-    props.isScrollTop ? "none" : "0 1px 0.3rem hsla(0, 0%, 80%, 0.8)"};
+    props.isscrolltop === "true"
+      ? "none"
+      : "0 1px 0.3rem hsla(0, 0%, 80%, 0.8)"};
 
   .section {
     width: calc(100% - 2rem);
@@ -155,11 +157,14 @@ const Header = styled.header`
       div {
         display: inline-block;
         padding: 0 1rem;
+        transition: ease 0.2s all;
         cursor: pointer;
       }
 
       :hover {
-        opacity: 0.5;
+        color: ${(props) =>
+          props.isscrolltop === "true" ? "#ffffff" : "orange"};
+        opacity: ${(props) => (props.isscrolltop === "true" ? 0.5 : 1)};
       }
     }
 

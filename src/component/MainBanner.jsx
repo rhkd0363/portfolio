@@ -5,27 +5,76 @@ import banner from "../assets/image/banner.jpg";
 const MainBanner = (props) => {
   const [first, setFirst] = useState(false);
   const [second, setSecond] = useState(false);
+  const [isScrollTop, setIsScrollTop] = useState(true);
 
   useEffect(() => {
-    const first = document.getElementById("first");
-    const anim = document.getAnimations();
-    first.addEventListener("animationstart", () => {
-      setTimeout(() => {
-        setFirst(true);
-      }, anim[0].startTime + 1000);
-    });
+    const setAnimation = () => {
+      if (window.scrollY < 574) {
+        setIsScrollTop(true);
+      } else {
+        setFirst(false);
+        setSecond(false);
+        setIsScrollTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", setAnimation);
+
+    return () => {
+      window.removeEventListener("scroll", setAnimation);
+    };
   }, []);
 
   useEffect(() => {
-    if (first) {
-      const second = document.getElementById("second");
-      const anim = document.getAnimations();
-      second.addEventListener("animationstart", () => {
-        setTimeout(() => {
-          setSecond(true);
-        }, anim[0].startTime + 1000);
-      });
-    }
+    if (!isScrollTop) return;
+
+    const doAnimation = () => {
+      setTimeout(() => {
+        setFirst(true);
+      }, 1000);
+    };
+
+    const attachEventListener = () => {
+      let first = document.getElementById("first");
+      if (first) {
+        first.addEventListener("animationstart", doAnimation);
+      }
+    };
+
+    attachEventListener();
+
+    return () => {
+      let first = document.getElementById("first");
+      if (first) {
+        first.removeEventListener("animationstart", doAnimation);
+      }
+    };
+  }, [isScrollTop]);
+
+  useEffect(() => {
+    if (!first) return;
+
+    const doAnimation = () => {
+      setTimeout(() => {
+        setSecond(true);
+      }, 1300);
+    };
+
+    const attachEventListener = () => {
+      let second = document.getElementById("second");
+      if (second) {
+        second.addEventListener("animationstart", doAnimation);
+      }
+    };
+
+    attachEventListener();
+
+    return () => {
+      let second = document.getElementById("second");
+      if (second) {
+        second.removeEventListener("animationstart", doAnimation);
+      }
+    };
   }, [first]);
 
   return (
@@ -38,16 +87,26 @@ const MainBanner = (props) => {
         </div>
         <hr />
         <div className="description">
-          <div id="first">협업과 소통을 좋아하며</div>
-          {first ? (
-            <div id="second">새로운 기술에 두려움이 없는</div>
+          {isScrollTop ? (
+            <>
+              <div id="first">협업과 소통을 좋아하며</div>
+              {first ? (
+                <div id="second">새로운 기술에 두려움이 없는</div>
+              ) : (
+                <div></div>
+              )}
+              {second ? (
+                <div id="third">꾸준히 성장하는 개발자 신현광입니다(●'◡'●)</div>
+              ) : (
+                <div></div>
+              )}
+            </>
           ) : (
-            <div></div>
-          )}
-          {second ? (
-            <div id="third">꾸준히 성장하는 개발자 신현광입니다(●'◡'●)</div>
-          ) : (
-            <div></div>
+            <>
+              <div></div>
+              <div></div>
+              <div></div>
+            </>
           )}
         </div>
         <button
