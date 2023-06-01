@@ -4,8 +4,7 @@ import ProejctItem from "./project/ProejctItem";
 import { wooahan, pickpacker, ssafit, live } from "./project/data";
 
 const Project = (props) => {
-  // const projectData = [wooahan, pickpacker, live, ssafit];
-  const projectData = [wooahan, pickpacker];
+  const projectData = [wooahan, pickpacker, live, ssafit];
   return (
     <Wrapper ref={props.projectRef}>
       <div className="inner">

@@ -1,11 +1,18 @@
-import wooahan_1 from "../../assets/pjt/wooahan/1.png";
-import wooahan_2 from "../../assets/pjt/wooahan/2.png";
-import wooahan_3 from "../../assets/pjt/wooahan/3.png";
-import wooahan_4 from "../../assets/pjt/wooahan/4.png";
-import wooahan_5 from "../../assets/pjt/wooahan/5.png";
+import wooahan_0 from "../../assets/pjt/wooahan/0.gif";
+import wooahan_1 from "../../assets/pjt/wooahan/1.gif";
+import wooahan_2 from "../../assets/pjt/wooahan/2.gif";
+import wooahan_3 from "../../assets/pjt/wooahan/3.gif";
+import wooahan_4 from "../../assets/pjt/wooahan/4.gif";
+import wooahan_5 from "../../assets/pjt/wooahan/5.gif";
 import wooahan_6 from "../../assets/pjt/wooahan/6.png";
 import wooahan_7 from "../../assets/pjt/wooahan/7.png";
+import wooahan_8 from "../../assets/pjt/wooahan/8.png";
+import wooahan_9 from "../../assets/pjt/wooahan/9.png";
+import wooahan_10 from "../../assets/pjt/wooahan/10.png";
+import wooahan_11 from "../../assets/pjt/wooahan/11.png";
+import wooahan_12 from "../../assets/pjt/wooahan/12.png";
 
+import pickpack_0 from "../../assets/pjt/pickpack/0.gif";
 import pickpack_1 from "../../assets/pjt/pickpack/1.png";
 import pickpack_2 from "../../assets/pjt/pickpack/2.png";
 import pickpack_3 from "../../assets/pjt/pickpack/3.png";
@@ -18,10 +25,25 @@ import pickpack_9 from "../../assets/pjt/pickpack/9.png";
 import pickpack_10 from "../../assets/pjt/pickpack/10.png";
 import pickpack_11 from "../../assets/pjt/pickpack/11.png";
 
+import live_0 from "../../assets/pjt/live/0.gif";
+import live_1 from "../../assets/pjt/live/1.gif";
+import live_2 from "../../assets/pjt/live/2.gif";
+import live_3 from "../../assets/pjt/live/3.gif";
+import live_4 from "../../assets/pjt/live/4.gif";
+import live_5 from "../../assets/pjt/live/5.gif";
+import live_6 from "../../assets/pjt/live/6.gif";
+import live_7 from "../../assets/pjt/live/7.gif";
+import live_8 from "../../assets/pjt/live/8.png";
+import live_9 from "../../assets/pjt/live/9.png";
+import live_10 from "../../assets/pjt/live/10.png";
+import live_11 from "../../assets/pjt/live/11.png";
+import live_12 from "../../assets/pjt/live/12.png";
+
 export const wooahan = {
   title: "우아한(우리 아이 한글 교육)",
   duration: "2023.04 ~ 2023.05 (6인 프로젝트)",
   images: [
+    wooahan_0,
     wooahan_1,
     wooahan_2,
     wooahan_3,
@@ -29,6 +51,11 @@ export const wooahan = {
     wooahan_5,
     wooahan_6,
     wooahan_7,
+    wooahan_8,
+    wooahan_9,
+    wooahan_10,
+    wooahan_11,
+    wooahan_12,
   ],
   desc: (
     <>
@@ -74,6 +101,7 @@ export const pickpacker = {
   title: "Pick & Packer",
   duration: "2023.02 ~ 2023.04 (6인 프로젝트)",
   images: [
+    pickpack_0,
     pickpack_1,
     pickpack_2,
     pickpack_3,
@@ -139,17 +167,19 @@ export const live = {
   title: "LIVE",
   duration: "2023.01 ~ 2023.02 (6인 프로젝트)",
   images: [
-    pickpack_1,
-    pickpack_2,
-    pickpack_3,
-    pickpack_4,
-    pickpack_5,
-    pickpack_6,
-    pickpack_7,
-    pickpack_8,
-    pickpack_9,
-    pickpack_10,
-    pickpack_11,
+    live_0,
+    live_1,
+    live_2,
+    live_3,
+    live_4,
+    live_5,
+    live_6,
+    live_7,
+    live_8,
+    live_9,
+    live_10,
+    live_11,
+    live_12,
   ],
   desc: (
     <>

@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 
 const ProejctItem = (props) => {
   const [imageFocus, setImageFocus] = useState(0);
   const [isImageClick, setIsImageClick] = useState(false);
+
+  useEffect(() => {
+    const preventScrollEvent = (e) => {
+      e.preventDefault();
+      console.log(e);
+    };
+
+    if (isImageClick) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      if (isImageClick) {
+        document.body.style.overflow = "unset";
+      }
+    };
+  }, [isImageClick]);
 
   return (
     <Container className="info-wrap">
@@ -94,14 +111,79 @@ const ProejctItem = (props) => {
             setIsImageClick(!isImageClick);
           }}
         >
-          <div className="image-detail">
-            <img src={props.images[imageFocus]} alt="none" />
+          <div
+            className="image-detail"
+            onMouseDown={(e) => {
+              const standardWidth = e.target.width / 3;
+              const standardHeight = e.target.height / 3;
+
+              const posX = e.clientX - e.target.offsetLeft;
+              const posY = e.clientY - e.target.offsetTop;
+
+              e.currentTarget.scrollTo(
+                standardWidth * 2 < posX
+                  ? posX
+                  : standardWidth < posX
+                  ? posX / 2
+                  : posX / 3,
+                standardHeight * 2 < posY
+                  ? posY
+                  : standardHeight < posY
+                  ? posY / 2
+                  : posY / 3
+              );
+            }}
+            onMouseMove={(e) => {
+              const posX = e.clientX - e.target.offsetLeft;
+              const posY = e.clientY - e.target.offsetTop;
+
+              if (posX > e.target.width / 2) {
+                e.target.scrollLeft -= 2;
+                console.log(1234);
+              } else e.target.scrollLeft += 2;
+
+              if (posY > e.target.height / 2) e.target.scrollLeft -= 2;
+              else e.target.scrollLeft += 2;
+            }}
+            onMouseMoveCapture={(e) => {
+              const posX = e.clientX - e.target.offsetLeft;
+              const posY = e.clientY - e.target.offsetTop;
+
+              if (posX > e.target.width / 2) {
+                e.target.scrollLeft -= 2;
+                console.log(1234);
+              } else e.target.scrollLeft += 2;
+
+              if (posY > e.target.height / 2) e.target.scrollLeft -= 2;
+              else e.target.scrollLeft += 2;
+            }}
+          >
+            <img
+              src={props.images[imageFocus]}
+              alt="none"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              onMouseDown={(e) => {
+                e.target.style.transform = `scale(2) translate(${
+                  e.target.width / 4
+                }px,${e.target.height / 4}px)`;
+              }}
+              onMouseUp={(e) => {
+                e.target.style.transform = "scale(1)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "scale(1)";
+              }}
+            />
           </div>
         </div>
       )}
     </Container>
   );
 };
+
+// 이미지 크기/2(중간) 보다 크면 왼쪽으로 아니면 오른쪽으로 transfrom : translate (가운데 - 클릭위치)절대값만큼 이동
 
 const Container = styled.div`
   background: #ffffff;
@@ -293,9 +375,13 @@ const Container = styled.div`
 
     .image-detail {
       margin: auto auto;
+      overflow: scroll;
+      transform-origin: 0%;
 
       img {
         width: 100%;
+        max-width: 90vw;
+        max-height: 90vh;
       }
     }
   }

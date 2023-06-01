@@ -12,9 +12,9 @@ const MainBanner = (props) => {
       if (window.scrollY < 574) {
         setIsScrollTop(true);
       } else {
+        setIsScrollTop(false);
         setFirst(false);
         setSecond(false);
-        setIsScrollTop(false);
       }
     };
 
