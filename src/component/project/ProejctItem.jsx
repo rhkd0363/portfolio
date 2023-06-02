@@ -70,14 +70,6 @@ const ProejctItem = (props) => {
                 Git-Hub 보러가기
               </a>
             </div>
-            {/* <div className="main-func">
-              <h3>주요 기능</h3>
-              <div>{props.mainFunc}</div>
-            </div>
-            <div className="use-skill">
-              <h3>사용 기술</h3>
-              <div>{props.stacks}</div>
-            </div> */}
           </div>
         </div>
       </div>

@@ -232,7 +232,7 @@ export const live = {
     </>
   ),
   position: "Front-End",
-  stacks: <>React, Redux-Toolkit, Sass, Eslint, kurento-utils</>,
+  stacks: <>React, Redux-Toolkit, Sass, kurento-utils</>,
 };
 
 export const ssafit = {
